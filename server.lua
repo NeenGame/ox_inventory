@@ -66,6 +66,7 @@ function server.setPlayerInventory(player, data)
         inv.player.ped = GetPlayerPed(player.source)
 
         if server.syncInventory then server.syncInventory(inv) end
+        Wait(250) -- Wait to load the client part after update to not cause (player inventory has not loaded)
         TriggerClientEvent('ox_inventory:setPlayerInventory', player.source, Inventory.Drops, inventory, totalWeight,
             inv.player)
     end
